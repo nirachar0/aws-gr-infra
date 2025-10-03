@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: "3.8"
+    commands:
+      # Ensure Terraform is installed in the build environment
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.11.4/terraform_1.11.4_linux_amd64.zip
+      - unzip terraform.zip
+      - mv terraform /usr/local/bin/
+    finally:
+      - terraform --version
+  build:
+    commands:
+      - mkdir -p build_output
+      - terraform init
+      - terraform plan
+artifacts:
+  files:
+    - output.json
+  discard-paths: yes
+  base-directory: build_output
