@@ -15,7 +15,10 @@ phases:
     commands:
       - mkdir -p build_output
       - terraform init
-      - terraform plan
+      - terraform plan -out=tfplan
+      - terraform show -json tfplan > build_output/output.json
+      - echo "Build output listing:"
+      - ls -la build_output || true
 artifacts:
   files:
     - output.json
