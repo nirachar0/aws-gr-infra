@@ -1,6 +1,6 @@
 {
   "source": ["aws.s3"],
-  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail-type": ["AWS API Call via CloudTrail test"],
   "detail": {
     "eventName": ["PutObject"]
   }
