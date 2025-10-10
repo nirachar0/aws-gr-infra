@@ -1,12 +1,21 @@
 {
   "source": [
-    "aws.cloudtrail"
+    "aws.s3"
   ],
   "detail-type": [
     "AWS API Call via CloudTrail"
   ],
   "detail": {
-    "eventSource": "s3.amazonaws.com",
-    "eventName": "CreateBucket"
+    "eventSource": [
+      "s3.amazonaws.com"
+    ],
+    "eventName": [
+      "CreateBucket"
+    ],
+    "awsRegion": [
+      {
+        "anything-but": "us-east-1"
+      }
+    ]
   }
 }
